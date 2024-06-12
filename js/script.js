@@ -1,11 +1,15 @@
-// SEARCH CODE
+// 1. Search Functionality___________________________
+// HTML Element Selection
+
 const searchPage = document.querySelector(".search");
 const tblSearch = document.querySelector(".trigger-search");
 const closeSearch = document.querySelector(".close-search");
 const searchInput = document.querySelector(".search-input");
 const searchIcon = document.querySelector(".clear-content");
 const indikator = document.querySelector(".indikator");
+const loadingPage = document.querySelector(".loading");
 
+// Event Listeners for Search
 tblSearch.addEventListener("click", () => {
   searchPage.classList.toggle("hilang-muncul");
 });
@@ -18,10 +22,18 @@ searchInput.addEventListener("input", function () {
   } else {
     searchIcon.classList = "clear-content hilang";
   }
+  updateResults();
+});
+searchIcon.addEventListener("click", function () {
+  searchInput.value = "";
+  indikator.innerHTML = "";
+  updateResults();
 });
 
-// SEARCH RESULT CODE
-const result = ["Beranda", "Profile", "Sambutan Kepala Sekolah", "Sejarah Singkat", "Visi dan Misi", "Fasilitas", "Jurusan ATPH", "jurusan TKJ", "Foto", "Video"];
+// 2. SEARCH RESULT PROCESSING________________________
+// Data Arrays and Keyword Generation
+
+const result = ["Beranda", "Profile", "Sambutan Kepala Sekolah", "Sejarah Singkat", "Visi dan Misi", "Fasilitas", "Jurusan ATPH", "Jurusan TKJ", "Foto", "Video"];
 const linkAnchor = ["index.html", "beranda.html", "sambutan.html", "sejarah.html", "visidanmisi.html", "fasilitas.html", "atph.html", "tkj.html", "foto.html", "video.html"];
 const keyWord = [];
 
@@ -36,32 +48,21 @@ result.forEach((kata) => {
   }
 });
 
+// Creating Search Result Elements
 const originalElement = document.querySelector(".result");
-const parent = originalElement.parentNode; // ambil elemen parentnya
-let i = 0;
-originalElement.classList = "result sembunyikanResult";
+const parent = originalElement.parentNode;
+originalElement.classList.add("result", "sembunyikanResult");
 
-while (i < result.length) {
-  const newElement = originalElement.cloneNode(true); // untuk cloning element + childnya
-  newElement.innerHTML = `${result[i]}`;
-  parent.appendChild(newElement); // nambah element
-  i++;
-}
+// 3. SEARCH SYNCHRONIZATION_____________________________
+// Input Synchronization and Data Combination
 
-// Sinkronisasi antara value input dengan keyword
-let inputSearchValue;
-setInterval(() => {
-  inputSearchValue = searchInput.value.toLowerCase();
-}, 1000);
-
-// Gabungkan semua data dari objek ke dalam variabel
 let allData = [];
 let keyBeranda = keyWord.slice(0, 7);
 let keyProfile = keyWord.slice(7, 14);
 let keySambutan = keyWord.slice(14, 37);
 let keySejarah = keyWord.slice(37, 52);
 let keyVisiMisi = keyWord.slice(52, 66);
-let keyFasilitas = keyWord.slice(65, 74);
+let keyFasilitas = keyWord.slice(66, 74);
 let keyAtph = keyWord.slice(74, 86);
 let keyTkj = keyWord.slice(86, 97);
 let keyFoto = keyWord.slice(97, 101);
@@ -96,7 +97,7 @@ for (let i = 0; i < result.length; i++) {
     case "Jurusan ATPH":
       data.keyWord = keyAtph;
       break;
-    case "jurusan TKJ":
+    case "Jurusan TKJ":
       data.keyWord = keyTkj;
       break;
     case "Foto":
@@ -110,62 +111,49 @@ for (let i = 0; i < result.length; i++) {
   allData.push(data);
 }
 
-// Event listener untuk input
-// searchInput.addEventListener("input", () => {
-//   inputLower = searchInput.value.toLowerCase();
-//   for (let i = 0; i < allData.length; i++) {
-//     // Periksa semua keyword dalam array keyword
-//     if (allData[i].keyWord.includes(inputLower)) {
-//       indikator.innerHTML = "Hasil Pencarian";
-//       originalElement.innerHTML = `${allData[i].result}`;
-//       originalElement.classList = "result munculkanResult";
-//       originalElement.addEventListener("click", () => {
-//         location.href = `${allData[i].anchor}`;
-//       });
-//     }
-//   }
-// });
+// 4. Search Result Display
+searchInput.addEventListener("input", updateResults);
 
-searchInput.addEventListener("input", () => {
+function updateResults() {
   const inputLower = searchInput.value.toLowerCase();
   let found = false;
 
-  for (let i = 0; i < allData.length; i++) {
-    if (allData[i].keyWord.includes(inputLower)) {
-      found = true;
-      originalElement.innerHTML = `${allData[i].result}`;
-      originalElement.classList = "result munculkanResult";
+  // Remove previous results
+  parent.querySelectorAll(".result").forEach((element) => {
+    if (element !== originalElement) {
+      element.remove();
+    }
+  });
 
-      originalElement.onclick = () => {
+  if (inputLower === "") {
+    indikator.innerHTML = "";
+    return;
+  }
+
+  for (let i = 0; i < allData.length; i++) {
+    if (allData[i].keyWord.some((keyword) => keyword.includes(inputLower))) {
+      found = true;
+
+      let newElement = originalElement.cloneNode(true);
+      newElement.innerHTML = `${allData[i].result}`;
+      newElement.classList.remove("sembunyikanResult");
+      newElement.classList.add("munculkanResult");
+      newElement.onclick = () => {
+        loadingPage.classList = "munculkan-loading";
         location.href = `${allData[i].anchor}`;
       };
-      break; // Keluar dari loop setelah menemukan hasil yang cocok
+      parent.appendChild(newElement);
     }
   }
 
   if (!found) {
-    originalElement.innerHTML = "Tidak ada hasil";
-    originalElement.classList = "result munculkanResult";
-  }
-
-  // Mengupdate indikator
-  if (inputLower === "") {
-    indikator.innerHTML = "";
-  } else if (found) {
-    indikator.innerHTML = "hasil";
+    indikator.innerHTML = "Tidak ada hasil";
   } else {
-    indikator.innerHTML = "nggk ada hasil";
+    indikator.innerHTML = "hasil";
   }
-});
+}
 
-searchIcon.addEventListener("click", function () {
-  searchInput.value = "";
-  originalElement.classList = "result sembunyikanResult";
-  searchIcon.classList = "clear-content hilang";
-  indikator.innerHTML = "";
-});
-
-// MAKE A TOGGLE MENU
+// 5. MENU TOGGLE
 const menuToggle = document.querySelector(".menu-toggle input");
 const nav = document.querySelector("nav");
 
@@ -173,7 +161,7 @@ menuToggle.addEventListener("click", function () {
   nav.classList.toggle("nav-tinggi");
 });
 
-// MODE CODE
+// 6. MODE SWITCH DARK AND LIGHT
 const modeToggle = document.querySelector(".mode-btn");
 const icon = document.querySelector(".icon");
 const components = document.querySelectorAll(".mode");
@@ -185,16 +173,16 @@ modeToggle.addEventListener("click", function () {
   });
 });
 
-// GALLERY IMAGE CODE
-let petImg1 = document.querySelector(".pet1");
-let petImg2 = document.querySelector(".pet2");
-let petImg3 = document.querySelector(".pet3");
-let computerImg1 = document.querySelector(".computer1");
-let computerImg2 = document.querySelector(".computer2");
-let computerImg3 = document.querySelector(".computer3");
-let workingImg1 = document.querySelector(".working1");
-let workingImg2 = document.querySelector(".working2");
-let workingImg3 = document.querySelector(".working3");
+// 7. GALLERY IMAGE DISPLAY
+const petImg1 = document.querySelector(".pet1");
+const petImg2 = document.querySelector(".pet2");
+const petImg3 = document.querySelector(".pet3");
+const computerImg1 = document.querySelector(".computer1");
+const computerImg2 = document.querySelector(".computer2");
+const computerImg3 = document.querySelector(".computer3");
+const workingImg1 = document.querySelector(".working1");
+const workingImg2 = document.querySelector(".working2");
+const workingImg3 = document.querySelector(".working3");
 
 function semua() {
   computerImg1.style.display = "block";
