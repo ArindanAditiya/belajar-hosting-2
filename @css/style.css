@@ -286,7 +286,6 @@ header .content {
   position: fixed;
   display: none;
   transition: 5s;
-  display: block;
 }
 
 .search.hilang-muncul {
