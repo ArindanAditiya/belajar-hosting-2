@@ -139,7 +139,7 @@ function updateResults() {
       newElement.classList.remove("sembunyikanResult");
       newElement.classList.add("munculkanResult");
       newElement.onclick = () => {
-        loadingPage.classList = "munculkan-loading";
+        loadingPage.classList = "loading munculkan-loading";
         location.href = `${allData[i].anchor}`;
       };
       parent.appendChild(newElement);
