@@ -73,7 +73,7 @@ body {
   display: none;
 }
 .loading.munculkan-loading {
-  display: none;
+  display: block;
 }
 /* Navbar */
 nav {
