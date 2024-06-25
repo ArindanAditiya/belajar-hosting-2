@@ -1,0 +1,17 @@
+.clear-content {
+  position: absolute;
+  left: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #acacac;
+  cursor: pointer;
+  display: none;
+}
+
+.clear-content.muncul {
+  display: block;
+}
+
+.clear-content.hilang {
+  display: none;
+}

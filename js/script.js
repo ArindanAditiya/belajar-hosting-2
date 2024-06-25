@@ -7,8 +7,9 @@ const closeSearch = document.querySelector(".close-search");
 const searchInput = document.querySelector(".search-input");
 const searchIcon = document.querySelector(".clear-content");
 const indikator = document.querySelector(".indikator");
+const loadingPage = document.querySelector(".loading");
 
-//Event Listeners for Search
+// Event Listeners for Search
 tblSearch.addEventListener("click", () => {
   searchPage.classList.toggle("hilang-muncul");
 });
@@ -21,20 +22,24 @@ searchInput.addEventListener("input", function () {
   } else {
     searchIcon.classList = "clear-content hilang";
   }
+  updateResults();
 });
 searchIcon.addEventListener("click", function () {
   searchInput.value = "";
-  originalElement.classList = "result sembunyikanResult";
-  searchIcon.classList = "clear-content hilang";
   indikator.innerHTML = "";
+  searchIcon.classList.remove("muncul");
+  searchIcon.classList.add("hilang");
+  updateResults();
 });
 
 // 2. SEARCH RESULT PROCESSING________________________
 // Data Arrays and Keyword Generation
 
-const result = ["Beranda", "Profile", "Sambutan Kepala Sekolah", "Sejarah Singkat", "Visi dan Misi", "Fasilitas", "Jurusan ATPH", "jurusan TKJ", "Foto", "Video"];
-const linkAnchor = ["index.html", "beranda.html", "sambutan.html", "sejarah.html", "visidanmisi.html", "fasilitas.html", "atph.html", "tkj.html", "foto.html", "video.html"];
+const result = ["Beranda", "Profile", "Sambutan Kepala Sekolah", "Sejarah Singkat", "Visi dan Misi", "Fasilitas", "Jurusan ATPH", "Jurusan TKJ", "Foto", "Video", "Informasi Pendaftaran"];
+const linkAnchor = ["index.html", "beranda.html", "sambutan.html", "sejarah.html", "visidanmisi.html", "fasilitas.html", "atph.html", "tkj.html", "foto.html", "video.html", "infopendaftaran.html"];
 const keyWord = [];
+
+console.table(keyWord);
 
 // Membuat array keyword dengan huruf yang bertambah
 result.forEach((kata) => {
@@ -50,23 +55,10 @@ result.forEach((kata) => {
 // Creating Search Result Elements
 const originalElement = document.querySelector(".result");
 const parent = originalElement.parentNode;
-let i = 0;
-originalElement.classList = "result sembunyikanResult";
-
-var newElement;
-while (i < result.length) {
-  newElement = originalElement.cloneNode(true);
-  newElement.innerHTML = `${result[i]}`;
-  parent.appendChild(newElement);
-  i++;
-}
+originalElement.classList.add("result", "sembunyikanResult");
 
 // 3. SEARCH SYNCHRONIZATION_____________________________
 // Input Synchronization and Data Combination
-let inputSearchValue;
-setInterval(() => {
-  inputSearchValue = searchInput.value.toLowerCase();
-}, 0);
 
 let allData = [];
 let keyBeranda = keyWord.slice(0, 7);
@@ -74,11 +66,12 @@ let keyProfile = keyWord.slice(7, 14);
 let keySambutan = keyWord.slice(14, 37);
 let keySejarah = keyWord.slice(37, 52);
 let keyVisiMisi = keyWord.slice(52, 66);
-let keyFasilitas = keyWord.slice(65, 74);
+let keyFasilitas = keyWord.slice(66, 74);
 let keyAtph = keyWord.slice(74, 86);
 let keyTkj = keyWord.slice(86, 97);
 let keyFoto = keyWord.slice(97, 101);
 let keyVideo = keyWord.slice(101, 106);
+let keyPendaftaran = keyWord.slice(106, 127);
 
 for (let i = 0; i < result.length; i++) {
   let data = {
@@ -109,7 +102,7 @@ for (let i = 0; i < result.length; i++) {
     case "Jurusan ATPH":
       data.keyWord = keyAtph;
       break;
-    case "jurusan TKJ":
+    case "Jurusan TKJ":
       data.keyWord = keyTkj;
       break;
     case "Foto":
@@ -118,65 +111,57 @@ for (let i = 0; i < result.length; i++) {
     case "Video":
       data.keyWord = keyVideo;
       break;
+    case "Informasi Pendaftaran":
+      data.keyWord = keyPendaftaran;
+      break;
   }
 
   allData.push(data);
 }
 
-// Search Result Display
-let isFirstRun = true; // variabel penanda
+// 4. Search Result Display
+searchInput.addEventListener("input", updateResults);
 
-searchInput.addEventListener("input", () => {
+function updateResults() {
   const inputLower = searchInput.value.toLowerCase();
   let found = false;
-  let keySama = false;
+
+  // Remove previous results
+  parent.querySelectorAll(".result").forEach((element) => {
+    if (element !== originalElement) {
+      element.remove();
+    }
+  });
+
+  if (inputLower === "") {
+    indikator.innerHTML = "";
+    return;
+  }
 
   for (let i = 0; i < allData.length; i++) {
-    if (allData[i].keyWord.includes(inputLower)) {
-      keySama = true;
+    if (allData[i].keyWord.some((keyword) => keyword.includes(inputLower))) {
       found = true;
 
+      let newElement = originalElement.cloneNode(true);
       newElement.innerHTML = `${allData[i].result}`;
-      newElement.classList = "result munculkanResult";
+      newElement.classList.remove("sembunyikanResult");
+      newElement.classList.add("munculkanResult");
       newElement.onclick = () => {
-        location.href = `${allData[i].anchor}`;
+        loadingPage.classList = "munculkan-loading";
+        location.href = `morepage/${allData[i].anchor}`;
       };
-
-      // hanya dijalankan sekali
-      if (isFirstRun) {
-        if (allData[i + 1] && allData[i + 1].keyWord.includes(inputLower)) {
-          let newElementClone = originalElement.cloneNode(true);
-          parent.appendChild(newElementClone);
-          newElementClone.innerHTML = `${allData[i + 1].result}`;
-          newElementClone.classList = "result munculkanResult";
-          newElementClone.onclick = () => {
-            location.href = `${allData[i + 1].anchor}`;
-          };
-
-          isFirstRun = false; // ubah penanda menjadi false
-        }
-      }
-      break;
+      parent.appendChild(newElement);
     }
   }
 
   if (!found) {
     indikator.innerHTML = "Tidak ada hasil";
-    newElement.classList = "result sembunyikanResult";
-  }
-
-  if (inputLower === "") {
-    indikator.innerHTML = "";
-  } else if (found) {
-    indikator.innerHTML = "hasil";
   } else {
-    indikator.innerHTML = "tidak ada hasil";
+    indikator.innerHTML = "hasil";
   }
-});
+}
 
-setInterval(() => {});
-// 4. MENU TOGGLE
-// Menu Toggle
+// 5. MENU TOGGLE
 const menuToggle = document.querySelector(".menu-toggle input");
 const nav = document.querySelector("nav");
 
@@ -184,8 +169,7 @@ menuToggle.addEventListener("click", function () {
   nav.classList.toggle("nav-tinggi");
 });
 
-// 5. MODE SWITCH DARK AND LIGHT
-// Mode Toggle
+// 6. MODE SWITCH DARK AND LIGHT
 const modeToggle = document.querySelector(".mode-btn");
 const icon = document.querySelector(".icon");
 const components = document.querySelectorAll(".mode");
@@ -197,17 +181,16 @@ modeToggle.addEventListener("click", function () {
   });
 });
 
-// 6. GALLERY IMAGE DISPLAY
-// Gallery Image Functions
-let petImg1 = document.querySelector(".pet1");
-let petImg2 = document.querySelector(".pet2");
-let petImg3 = document.querySelector(".pet3");
-let computerImg1 = document.querySelector(".computer1");
-let computerImg2 = document.querySelector(".computer2");
-let computerImg3 = document.querySelector(".computer3");
-let workingImg1 = document.querySelector(".working1");
-let workingImg2 = document.querySelector(".working2");
-let workingImg3 = document.querySelector(".working3");
+// 7. GALLERY IMAGE DISPLAY
+const petImg1 = document.querySelector(".pet1");
+const petImg2 = document.querySelector(".pet2");
+const petImg3 = document.querySelector(".pet3");
+const computerImg1 = document.querySelector(".computer1");
+const computerImg2 = document.querySelector(".computer2");
+const computerImg3 = document.querySelector(".computer3");
+const workingImg1 = document.querySelector(".working1");
+const workingImg2 = document.querySelector(".working2");
+const workingImg3 = document.querySelector(".working3");
 
 function semua() {
   computerImg1.style.display = "block";

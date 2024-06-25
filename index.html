@@ -4,11 +4,21 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>SMK IT TEBUIRENG 3</title>
+
+    <!-- FONT -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <!-- TITLE ICON -->
     <link rel="icon" type="image/x-icon" href="img/logo-smk.png">
-  <link rel="stylesheet" href="@css/style.css" />
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="@css/style.css" />
+    <link rel="stylesheet" href="@css/programming.css">
+
+    <!-- LIBARY -->
+    <link rel="stylesheet" href="library/aos/dist/aos.css" />
   </head>
-  </head>
+
   <body class="mode">
     <h1></h1>
     <!-- loading -->
@@ -21,28 +31,15 @@
     <div class="search">
       <div class="close-search">
         <i class="fa-sharp fa-solid fa-circle-xmark"></i>
-         <!-- x -->
       </div>
       <div class="search-content">
         <h1>PENCARIAN</h1>
         <div class="search-box">
           <input value="" list="prediksi" class="search-input" type="text" placeholder="Cari Di Sini" name="" id="">
-          <datalist id="prediksi">
-            <option value="Beranda">
-            <option value="Profile">
-            <option value="Sambutan Kepala Sekolah">
-            <option value="Sejarah Singkat">
-            <option value="Visi dan Misi">
-            <option value="Fasilitas">
-            <option value="Jurusan ATPH">
-            <option value="jurusan TKJ">
-            <option value="Foto">
-            <option value="Video">
-          </datalist>
           <!-- <button id="test">triger</button> -->
           <div class="clear-content">
             <i class="fa-solid fa-xmark search-svg"></i>
-             <!-- x -->
+            <b>X</b>
           </div>
         </div>
 
@@ -74,7 +71,7 @@
           <li><a href="#beranda">Beranda</a></li>
           <li>
             <a href="#sambutan">Profil ▼</a>
-            <ul class="dropdown dr-1">
+            <ul class="dropdown ">
               <li><a href="">Sambutan Kepala Sekolah</a></li>
               <li><a href="">Sejarah Singkat</a></li>
               <li><a href="">Visi Misi</a></li>
@@ -83,12 +80,17 @@
           </li>
           <li>
             <a href="#prodi">Prodi ▼</a>
-            <ul class="dropdown dr-2">
+            <ul class="dropdown ">
               <li><a href="">TKJ</a></li>
               <li><a href="">ATPH</a></li>
             </ul>
           </li>
-          <li><a href="#gallery">Galeri</a></li>
+          <li><a href="#gallery">Galeri ▼ </a>
+            <ul class="dropdown ">
+              <li><a href="">Foto</a></li>
+              <li><a href="">Video</a></li>
+            </ul>
+          </li>
           <li><a href="#kontak">Kontak</a></li>
         </ul>
         <div class="more-btn">
@@ -108,45 +110,19 @@
       </video> -->
       <video class="video-bg" autoplay muted loop playsinline>
           <source src="img/sinematik-sekolah.mp4" type="video/mp4">
-          Your browser does not support the video tag.
+          Your browser does not support the video tag. 
       </video>
       <div class="conteiner">
         <div class="content">
           <p>Assaamualaikum WR.WB</p>
           <p>Selamat datang di Website Sekolah</p>
-          <h1>hello world</h1>
+          <h1>SMK IT TEBUIRENG 3</h1>
           <div class="typing">
             <div class="text">Agamis - Trampil - Mandiri</div>
           </div>
           <a style="margin-top: 70px;" href="#" class="standar-btn" >informasi Pendaftaran →</a>
         </div>
       </div>
-      
-
-
-      <!-- <div class="jurusan">
-        <div class="jurusan-detil">
-          <div class="hiasan-circle">
-            <img src="img/logo-yayasan.png" alt="">
-          </div>          
-          <h3>Unit Yayasan</h3>
-          <p>Merupakan salah satu unit <br> pendidikan Yayasan Hajarunnajah </p>
-        </div>
-        <div class="jurusan-detil">
-          <div class="hiasan-circle">
-            <h1>1</h1>
-          </div>          
-          <h3>Langka</h3>
-          <p>Merupakan satu-satunya SMK <br> Di Indragiri Hilir yang <br> di bawah naungan Pesantren</p>
-        </div>
-         <div class="jurusan-detil">
-          <div class="hiasan-circle">
-            <h1>A</h1>
-          </div>          
-          <h3>Terakreditasi A</h3>
-          <p>SMK IT Tebuireng 3 <br> Mendapatkan Nilai Akreditasi<br>yang cukup baik</p>
-        </div>
-      </div>   -->
     </header>
     <!-- end header -->
 
@@ -154,10 +130,10 @@
     <!-- start sambutan -->
     <div class="section " id="sambutan">
       <div class="conteiner ">
-        <div class="sambutan-img ">
+        <div data-aos="fade-right" data-aos-offset="300" data-aos-duration="1000"  class="sambutan-img ">
           <div class="img"></div>
           <div class="name"><h3>Trimo Priyanto SP</h3></div>
-          <div class="sosmed">
+          <div   class="sosmed">
             <a href="#">
               <i class="fab fa-instagram"></i>
             </a>
@@ -171,95 +147,91 @@
         </div>
         <div class="sambutan-content ">
           <div>
-            <h1 class="">Sambutan Kepala Sekolah</h1>
-            <div class="hiasan-content"></div>
-            <p class="">Assalamu'alaikum warahmatullahi wabarakatuh,Puji syukur kita panjatkan kehadirat Allah SWT, karena atas rahmat dan karunia-Nya, kita dapat berkumpul di pagi/ siang/ malam yang penuh berkah ini. Saya, [Nama Anda], selaku Kepala Sekolah SMK IT Tebuireng 3, ingin menyampaikan salam dan </p>       
-            <div class="hiasan-content"></div>
-            <a class="standar-btn" href="#">Selengkapnya →</a>
+            <h1 data-aos="fade-left" data-aos-offset="100" data-aos-duration="400" data-aos-duration="400" data-aos-delay="0" class="">Sambutan Kepala Sekolah</h1>
+            <div data-aos="fade-left" data-aos-offset="100" data-aos-duration="400" data-aos-duration="400" data-aos-delay="200" class="hiasan-content"></div>
+            <p data-aos="fade-left" data-aos-offset="100" data-aos-duration="400" data-aos-duration="400" data-aos-delay="400" class="">Assalamu'alaikum warahmatullahi wabarakatuh,Puji syukur kita panjatkan kehadirat Allah SWT, karena atas rahmat dan karunia-Nya, kita dapat berkumpul di pagi/ siang/ malam yang penuh berkah ini. Saya, [Nama Anda], selaku Kepala Sekolah SMK IT Tebuireng 3, ingin menyampaikan salam dan </p>       
+            <div data-aos="fade-left" data-aos-offset="100" data-aos-duration="400" data-aos-duration="400" data-aos-delay="600" class="hiasan-content"></div>
+            <a data-aos="fade-left" data-aos-offset="100" data-aos-duration="400" data-aos-duration="400" data-aos-delay="800" class="standar-btn" href="#">Selengkapnya →</a>
           </div>
         </div>
       </div>
     </div>
     <!-- end sambutan -->
     
-    <!-- profile -->
-    <section id="profile" class="">
-      <h1 class="standar-heading1" >PROFILE</h1>
-      <div class="conteiner ">
-        <div class="col">
-          <div class="info">
-            <p>
-              Mau tau seputar <br />
-              SMK IT Tebuireng 3
-            </p>
-          </div>
-          <div class="title">
-            <h1>Profile<br />Sekolah</h1>
-          </div>
-          <div class="profile-img"></div>
-        </div>  
-        <div class="col">
-          <div class="about-img"></div>
-          <div class="about-content">
-            <div>
-              <h3 class="">Tentang</h3>
-              <h2 class="">Sekolah</h2>
-              <p class="">SMK Islam Terpadu Tebuireng 3 adalah salah satu satuan pendidikan dengan jenjang SMK di Petalongan, Kec. Keritang, Kab. Indragiri Hilir, Riau. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Facilis, numquam.</p>
-            </div>
-          </div>
-        </div>
-        <div class="col">
-            <div class="fasilitas-content">
-              <div>
-                <h3>kisah</h3>
-                <h2>Sejarah Singkat</h2>
-                <p class="p1 singkat">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Cupiditate, deserunt!</p>
-                <p class="p2 singkat">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Non molestiae eos assumenda.</p>
-              </div>
-            </div>
-            <div class="fasilitas-img"></div>
-          </div>
-        </div>
-        <a style="margin: 1px auto; display: block; width: 200px; text-align: center; margin-top: 20px;" class="standar-btn" href="#">Selengkapnya →</a>
+<!-- profile -->
+<section id="profile" class="">
+  <h1 class="standar-heading1" data-aos="fade-up"  data-aos-offset="100" data-aos-duration="400">PROFILE</h1>
+  <div class="conteiner">
+    <div class="col">
+      <div class="info" data-aos="fade-up"  data-aos-offset="100" data-aos-duration="400" data-aos-delay="200">
+        <p>Mau tau seputar <br /> SMK IT Tebuireng 3</p>
       </div>
-    </section>
-    <!-- end profile -->
+      <div class="title" data-aos="fade-up"  data-aos-offset="100" data-aos-duration="400" data-aos-delay="400">
+        <h1>Profile<br />Sekolah</h1>
+      </div>
+      <div class="profile-img" data-aos="fade-up"  data-aos-offset="100" data-aos-duration="400" data-aos-delay="600"></div>
+    </div>
+    <div class="col">
+      <div class="about-img" data-aos="fade-up"  data-aos-offset="100" data-aos-duration="400" data-aos-delay="200"></div>
+      <div class="about-content" data-aos="fade-up"  data-aos-offset="100" data-aos-duration="400" data-aos-delay="400">
+        <div>
+          <h3>Tentang</h3>
+          <h2>Sekolah</h2>
+          <p>SMK Islam Terpadu Tebuireng 3 adalah salah satu satuan pendidikan dengan jenjang SMK di Petalongan, Kec. Keritang, Kab. Indragiri Hilir, Riau. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Facilis, numquam.</p>
+        </div>
+      </div>
+    </div>
+    <div class="col">
+      <div class="fasilitas-content" data-aos="fade-up"  data-aos-offset="100" data-aos-duration="400" data-aos-delay="200">
+        <div>
+          <h3>Kisah</h3>
+          <h2>Sejarah Singkat</h2>
+          <p class="p1 singkat">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Cupiditate, deserunt!</p>
+          <p class="p2 singkat">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Non molestiae eos assumenda.</p>
+        </div>
+      </div>
+      <div class="fasilitas-img" data-aos="fade-up"  data-aos-offset="100" data-aos-duration="400" data-aos-delay="400"></div>
+    </div>
+  </div>
+  <a style="margin: 1px auto; display: block; width: 200px; text-align: center;" href="#" class="standar-btn" data-aos="fade-up"  data-aos-offset="100" data-aos-duration="400" data-aos-delay="600">Selengkapnya →</a>
+</section>
+<!-- end profile -->
 
     <!-- start Prodi -->
-     <section id="prodi" class="">
-      <h1 class="standar-heading1 " >PROGRAM STUDI</h1>
-      <div class="conteiner">
-        <div class="prodi-img atph"></div>
-        <div class="prodi-content">
-          <div class="prodi-title">
-              <img src="img/logo-atph.png" alt="">
-            <div class="heading ">
-              <h2 class="">ATPH</h2>
-              <h3 class="">Agribisnis Tanaman Pangan dan holtikultra</h3>
-            </div>
-          </div>
-          <p class="">Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo, rem laboriosam. Praesentium ipsum tenetur dolorum laudantium vero nobis, quasi expedita, aspernatur, voluptas nihil reiciendis ex! Omnis, corrupti illo deleniti temporibus recusandae consectetur perspiciatis voluptatibus in, ducimus officiis id illum iure expedita error, magnam veritatis exercitationem natus assumenda ex eveniet rem.</p>
-          <a class="standar-btn" href="#">Selengkapnya →</a>
+<section id="prodi" class="">
+  <h1 class="standar-heading1" data-aos="fade-up"  data-aos-offset="100" data-aos-duration="400">PROGRAM STUDI</h1>
+  <div class="conteiner">
+    <div class="prodi-img atph" data-aos="fade-right"></div>
+    <div class="prodi-content" data-aos="fade-left">
+      <div class="prodi-title" data-aos="fade-up"  data-aos-offset="100" data-aos-duration="400" data-aos-delay="500">
+        <img src="img/logo-atph.png" alt="">
+        <div class="heading">
+          <h2 class="">ATPH</h2>
+          <h3 class="">Agribisnis Tanaman Pangan dan Holtikultura</h3>
         </div>
       </div>
-      
-      <div class="conteiner ">      
-        <div class="prodi-content ">
-          <div class="prodi-title">
-              <img src="img/logo-tkj.png" alt="">
-            <div class="heading ">
-              <h2 class="">TKJ</h2>
-              <h3 class="">Teknik Komputer dan Jaringan</h3>
-            </div>
-          </div>
-          <p class="">Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo, rem laboriosam. Praesentium ipsum tenetur dolorum laudantium vero nobis, quasi expedita, aspernatur, voluptas nihil reiciendis ex! Omnis, corrupti illo deleniti temporibus recusandae consectetur perspiciatis voluptatibus in, ducimus officiis id illum iure expedita error, magnam veritatis exercitationem natus assumenda ex eveniet rem.</p>
-          <a class="standar-btn" href="#">Selengkapnya →</a>
+      <p class="" data-aos="fade-up"  data-aos-offset="100" data-aos-duration="400" data-aos-delay="1000">Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo, rem laboriosam. Praesentium ipsum tenetur dolorum laudantium vero nobis, quasi expedita, aspernatur, voluptas nihil reiciendis ex! Omnis, corrupti illo deleniti temporibus recusandae consectetur perspiciatis voluptatibus in, ducimus officiis id illum iure expedita error, magnam veritatis exercitationem natus assumenda ex eveniet rem.</p>
+      <a class="standar-btn" href="#" data-aos="fade-up"  data-aos-duration="400" data-aos-delay="500">Selengkapnya →</a>
+    </div>
+  </div>
+
+  <div class="conteiner">
+    <div class="prodi-content" data-aos="fade-left">
+      <div class="prodi-title" data-aos="fade-up"  data-aos-offset="100" data-aos-duration="400">
+        <img src="img/logo-tkj.png" alt="">
+        <div class="heading">
+          <h2 class="">TKJ</h2>
+          <h3 class="">Teknik Komputer dan Jaringan</h3>
         </div>
-        <div  class="prodi-img tkj"></div>
       </div>
-      
-     </section>
-    <!-- end prodi -->
+      <p class="" data-aos="fade-up"  data-aos-offset="100" data-aos-duration="400">Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo, rem laboriosam. Praesentium ipsum tenetur dolorum laudantium vero nobis, quasi expedita, aspernatur, voluptas nihil reiciendis ex! Omnis, corrupti illo deleniti temporibus recusandae consectetur perspiciatis voluptatibus in, ducimus officiis id illum iure expedita error, magnam veritatis exercitationem natus assumenda ex eveniet rem.</p>
+      <a class="standar-btn" href="#" data-aos="fade-up"  data-aos-offset="100" data-aos-duration="400">Selengkapnya →</a>
+    </div>
+    <div class="prodi-img tkj" data-aos="fade-right"></div>
+  </div>
+
+</section>
+<!-- end prodi -->
 
     <!-- start gallery -->
     <section id="gallery" class="">
@@ -296,14 +268,19 @@
         <div style="background-image: url('img/g2.jpg')" class="image computer3"></div>
         <div style="background-image: url('img/g1.jpg')" class="image pet3"></div>
       </div>
-      <!-- end Foto -->
-              <!-- statrt map -->
-              <div class="map">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3147.9714662938595!2d102.65446427371128!3d-0.7141572992788792!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e29052c80680c27%3A0x1b3b9e127655b755!2sSMK%20IT%20Tebuireng3!5e1!3m2!1sid!2sid!4v1712485936044!5m2!1sid!2sid" width="100%" height="250" style="border:0" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-
-                <a href="#" class="standar-btn orange" >lihat Lokasi</a>
-              </div>     
-              <!-- end map -->
+ <!-- end Foto -->
+  
+    <div class="location">
+    <!-- statrt map -->
+      <h2 class="standar-heading2" >LOKASI</h2>
+      <p>SMK IT Tebuireng 3 Terletak di Lorem ipsum dolor sit amet consectetur adipisicing elit. Quidem eum molestiae at quo sed recusandae cum dolore accusantium fuga reprehenderit.</p>
+      <div class="map">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3147.9714662938595!2d102.65446427371128!3d-0.7141572992788792!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e29052c80680c27%3A0x1b3b9e127655b755!2sSMK%20IT%20Tebuireng3!5e1!3m2!1sid!2sid!4v1712485936044!5m2!1sid!2sid" width="100%" height="100%" style="border:0" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </div>     
+      <a style="margin: 1px auto; display: block; width: 200px; text-align: center; margin-top: 20px;" class="standar-btn" href="#">Lihat Lokasi →</a>
+      <!-- end map -->
+    </div>
+   
     </section>
     <!-- end gallery -->
 
@@ -391,13 +368,21 @@
           </div>
         </div>
         <div class="col">
-          <ul class="link .menu">
-            <li><a href="#beranda">Beranda</a></li>
-            <li><a href="#sambutan">Profil</a></li>
-            <li><a href="#prodi">Prodi</a></li>
-            <li><a href="#gallery">Galeri</a></li>
-            <li><a href="#kontak">Kontak</a></li>
-          </ul>
+          <ol>
+            <li><a href="">Beranda</a></li>
+          </ol>
+          <ol>
+            <li><a href="">Profil</a></li>
+          </ol>
+          <ol>
+            <li><a href="">Prodi</a></li>
+          </ol>
+          <ol>
+            <li><a href="">Beranda</a></li>
+          </ol>
+          <ol>
+            <li><a href="">Beranda</a></li>
+          </ol>
         </div>
         <div class="col image">
           <img src="img/logo-smk.png" alt="">
@@ -406,6 +391,12 @@
     </footer>
     <!-- end footer -->
     <script src="js/script.js"></script>
+    <script src="library/aos/dist/aos.js"></script>
+    <script>
+       AOS.init({
+        once: true
+    });
+    </script>
   </body>
 </html>
 
