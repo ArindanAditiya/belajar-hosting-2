@@ -1,4 +1,0 @@
- <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1994.7541964631155!2d102.6565859150971!3d-0.7141573!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e29052c80680c27%3A0x1b3b9e127655b755!2sSMK%20IT%20Tebuireng3!5e0!3m2!1sid!2sid!4v1712145286559!5m2!1sid!2sid" width="1120px" height="400px" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-
-
-c

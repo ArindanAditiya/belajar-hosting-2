@@ -1,4 +1,5 @@
 * {
+  /* border: 1px solid white; */
   margin: 0;
   padding: 0;
   font-family: "montserat";
@@ -32,6 +33,7 @@ body {
   display: block;
   /* border: 1px solid white; */
 }
+
 .standar-heading1::after {
   content: "";
   display: block;
@@ -40,6 +42,7 @@ body {
   background-color: #ec4d37;
   margin: 0 auto;
 }
+
 .standar-btn {
   display: inline-block;
   margin: 0 auto;
@@ -64,7 +67,7 @@ body {
 .loading {
   width: 100%;
   height: 100vh;
-  z-index: 999999999999999;
+  z-index: 99999999999;
   background-color: white;
   display: flex;
   align-items: center;
@@ -87,7 +90,7 @@ nav {
   left: 50%;
   width: 95%;
   height: 50px;
-  z-index: 1000;
+  z-index: 100000;
   border-radius: 10px;
   transform: translateY(10px) translateX(-50%);
 }
@@ -175,6 +178,7 @@ nav .conteiner .logo p::after {
 .link li ul.dropdown li {
   display: block;
   margin-bottom: 10px;
+  width: 200px;
 }
 
 .link li ul.dropdown {
@@ -184,7 +188,7 @@ nav .conteiner .logo p::after {
   background-color: #1d1b1b;
   /* backdrop-filter: blur(100px); */
   position: absolute;
-  top: 70px;
+  top: 50px;
   z-index: 999;
   display: none;
   border: 1px solid #eaeaea;
@@ -282,10 +286,11 @@ header .content {
   height: 100vh;
   background-color: #1d1b1bc0;
   backdrop-filter: blur(10px);
-  z-index: 9999;
+  z-index: 999999;
   position: fixed;
   display: none;
   transition: 5s;
+  display: none;
 }
 
 .search.hilang-muncul {
@@ -334,23 +339,7 @@ header .content {
   background-color: transparent;
   border: 3px solid white;
 }
-.clear-content {
-  position: absolute;
-  left: 20px;
-  top: 50%;
-  transform: translateY(-50%);
-  color: #acacac;
-  cursor: pointer;
-  display: none;
-}
 
-.clear-content.muncul {
-  display: block;
-}
-
-.clear-content.hilang {
-  display: none;
-}
 .search-svg {
   color: #acacac;
 }
@@ -397,63 +386,6 @@ option {
   margin-bottom: 1px;
   font-size: 18px;
   cursor: pointer;
-}
-.jurusan {
-  width: 90%;
-  display: flex;
-  justify-content: space-around;
-  flex-wrap: wrap;
-  gap: 5px;
-  z-index: 300;
-  background-color: #1d1b1b9d;
-  backdrop-filter: blur(20px);
-  box-shadow: 3.9px 8.4px 22.3px -38px rgba(0, 0, 0, 0.044), 7.9px 16.9px 48.3px -38px rgba(0, 0, 0, 0.082), 33px 71px 132px -38px rgba(0, 0, 0, 0.27);
-  position: absolute;
-  bottom: -90px;
-  left: 50%;
-  transform: translateX(-50%);
-  border-radius: 5px;
-  border: 1px solid #eaeaea;
-}
-.jurusan-detil {
-  flex-grow: 2;
-  width: 295px;
-  text-align: center;
-  color: #eaeaea;
-  position: relative;
-  top: -30px;
-}
-
-.jurusan-detil .hiasan-circle {
-  width: 100px;
-  height: 100px;
-  border-radius: 1000px;
-  background-color: #1d1b1b7c;
-  border: 1px solid #eaeaea;
-  position: absolute;
-  left: 50%;
-  top: -20px;
-  transform: translateX(-50%);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.jurusan-detil img {
-  width: 60px;
-}
-
-.jurusan-detil h4,
-.jurusan-detil p,
-.jurusan-detil img {
-  position: relative;
-}
-
-.jurusan-detil h1 {
-  font-size: 4em;
-}
-.jurusan-detil h3 {
-  margin-top: 80px;
-  font-size: 1.5em;
 }
 /* end profile */
 
@@ -554,7 +486,8 @@ option {
 } */
 .sambutan-content h1 {
   margin-top: 10px;
-  margin-bottom: 50px;
+  margin-bottom: 20px;
+  margin-left: 0px;
   transform: scale(1.1);
 }
 
@@ -623,6 +556,7 @@ option {
   color: #eaeaea;
   font-size: 1.2em;
   text-transform: uppercase;
+  z-index: 99;
 }
 
 .profile-img {
@@ -881,6 +815,7 @@ option {
 #gallery .conteiner {
   margin: 10px auto;
   display: flex;
+
   width: 90%;
   flex-wrap: wrap;
   /* border: 1px solid white; */
@@ -919,9 +854,33 @@ option {
   background-color: #8f8d8d;
   color: rgb(32, 33, 46);
 }
-.map {
+.location {
   width: 80%;
   margin: 0 auto;
+}
+.location h2 {
+  font-size: 30px;
+  margin-bottom: 10px;
+}
+
+.location h2::after {
+  content: "";
+  width: 30px;
+  height: 5px;
+  background-color: orange;
+  display: block;
+  margin-left: 10px;
+}
+
+.location p {
+  margin-bottom: 10px;
+}
+.map {
+  width: 100%;
+  height: 300px;
+  margin: 0 auto;
+  border-radius: 5px;
+  overflow: hidden;
 }
 /* Contact */
 #contact {
@@ -1060,8 +1019,9 @@ footer img {
     flex-direction: column;
     /* transform: translateY(65px); */
     position: absolute;
-    top: 0;
+    top: 15px;
     height: 100%;
+    gap: 12px;
   }
   nav .conteiner .burger-logo {
     display: flex;
