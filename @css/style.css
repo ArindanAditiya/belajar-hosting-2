@@ -790,7 +790,7 @@ option {
 .thumbnail.first::before,
 .thumbnail.second::before {
   content: "";
-  background-image: url(../img/lahan.JPG);
+  background-image: url(https://scontent.fdps5-1.fna.fbcdn.net/v/t39.30808-6/480723870_1792594018202611_7183690135070818005_n.jpg?stp=dst-jpg_p526x395_tt6&_nc_cat=100&ccb=1-7&_nc_sid=127cfc&_nc_eui2=AeH6dJXuQfTOupfx4tw7o_2P_a-Ay1gVOlH9r4DLWBU6Ucq3u_twrYXDyqSoAS_cQR76gKB--jP_krahrFnZBNAD&_nc_ohc=0ZQ_o5EsZTsQ7kNvgFhwzLE&_nc_oc=AdgTwPXOB-XlKaHcuzE8YZK3_hM-F2cDK5Ql7qQHdMGiHKVcUUk4Tzx63QbtZwlRLO4&_nc_zt=23&_nc_ht=scontent.fdps5-1.fna&_nc_gid=Aop4eRuX5MSfRN79Aq3_ekm&oh=00_AYDY0Qqiw1Lkt_TE8wquBrBy7ojsZzIxjIf0hBLsxfKrfQ&oe=67BCF350);
   background-position: center;
   background-size: cover;
   position: absolute;
@@ -810,7 +810,7 @@ option {
 .thumbnail.second::before {
   top: 240px;
   left: -240px;
-  background-image: url(../img/sekolah.JPG);
+  background-image: url(https://scontent.fdps5-1.fna.fbcdn.net/v/t39.30808-6/480555432_1792594051535941_8416954063441220673_n.jpg?stp=dst-jpg_p526x395_tt6&_nc_cat=101&ccb=1-7&_nc_sid=127cfc&_nc_eui2=AeHHoaFYI1777UZ_fAzpwjCXIOCfEsi3B8kg4J8SyLcHyavkqw0FY7dK6iM4kdtNs--Ly6JEIWJedkP76W05FLQs&_nc_ohc=y_LPpIHb7C0Q7kNvgE_isZU&_nc_oc=Adg2GKnCofx_n1OaPYZTBezPJVFw9wMomacZgp-Wa9NKB265h7imBupHRseZQiKnZUA&_nc_zt=23&_nc_ht=scontent.fdps5-1.fna&_nc_gid=Aop4eRuX5MSfRN79Aq3_ekm&oh=00_AYAjaJR5IuOybLlnB56YYfxvXt8SxzpEKYJqcB-4QrUlhQ&oe=67BCE3E3`);
 }
 #gallery .conteiner {
   margin: 10px auto;

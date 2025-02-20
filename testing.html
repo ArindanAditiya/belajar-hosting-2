@@ -1,135 +1,128 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Custom Datalist Examples</title>
-  <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-  <style>
-    /* Styling for the input element */
-    input {
-      padding: 10px;
-      border: 2px solid #4CAF50;
-      border-radius: 5px;
-      width: 200px;
-    }
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Custom Datalist Examples</title>
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css" />
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <style>
+      /* Styling for the input element */
+      input {
+        padding: 10px;
+        border: 2px solid #4caf50;
+        border-radius: 5px;
+        width: 200px;
+      }
 
-    /* Custom Dropdown Styles */
-    .dropdown-container {
-      position: relative;
-      display: inline-block;
-    }
-    .dropdown-content {
-      display: none;
-      position: absolute;
-      background-color: #f9f9f9;
-      min-width: 200px;
-      box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-      z-index: 1;
-    }
-    .dropdown-content div {
-      padding: 12px 16px;
-      cursor: pointer;
-    }
-    .dropdown-content div:hover {
-      background-color: #f1f1f1;
-    }
+      /* Custom Dropdown Styles */
+      .dropdown-container {
+        position: relative;
+        display: inline-block;
+      }
+      .dropdown-content {
+        display: none;
+        position: absolute;
+        background-color: #f9f9f9;
+        min-width: 200px;
+        box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+        z-index: 1;
+      }
+      .dropdown-content div {
+        padding: 12px 16px;
+        cursor: pointer;
+      }
+      .dropdown-content div:hover {
+        background-color: #f1f1f1;
+      }
 
-    /* jQuery UI Autocomplete Styles */
-    .ui-autocomplete {
-      max-height: 200px;
-      overflow-y: auto;
-      overflow-x: hidden;
-    }
-    .ui-menu-item {
-      padding: 10px;
-      background: #4CAF50;
-      color: #fff;
-    }
-    .ui-menu-item:hover {
-      background: #45a049;
-    }
-  </style>
-</head>
-<body>
+      /* jQuery UI Autocomplete Styles */
+      .ui-autocomplete {
+        max-height: 200px;
+        overflow-y: auto;
+        overflow-x: hidden;
+      }
+      .ui-menu-item {
+        padding: 10px;
+        background: #4caf50;
+        color: #fff;
+      }
+      .ui-menu-item:hover {
+        background: #45a049;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Native Datalist Example -->
+    <h2>Native Datalist Example</h2>
+    <input list="browsers" name="browser" id="browser" />
+    <datalist id="browsers">
+      <option value="Chrome"></option>
+      <option value="Firefox"></option>
+      <option value="Safari"></option>
+      <option value="Edge"></option>
+    </datalist>
 
-  <!-- Native Datalist Example -->
-  <h2>Native Datalist Example</h2>
-  <input list="browsers" name="browser" id="browser">
-  <datalist id="browsers">
-    <option value="Chrome">
-    <option value="Firefox">
-    <option value="Safari">
-    <option value="Edge">
-  </datalist>
-
-  <!-- jQuery UI Autocomplete Example -->
-  <h2>jQuery UI Autocomplete Example</h2>
-  <div class="ui-widget">
-    <label for="tags">Tags: </label>
-    <input id="tags">
-  </div>
-
-  <!-- Custom Dropdown Example -->
-  <h2>Custom Dropdown Example</h2>
-  <div class="dropdown-container">
-    <input type="text" class="dropdown-input" placeholder="Search...">
-    <div class="dropdown-content">
-      <div>Chrome</div>
-      <div>Firefox</div>
-      <div>Safari</div>
-      <div>Edge</div>
+    <!-- jQuery UI Autocomplete Example -->
+    <h2>jQuery UI Autocomplete Example</h2>
+    <div class="ui-widget">
+      <label for="tags">Tags: </label>
+      <input id="tags" />
     </div>
-  </div>
 
-  <script>
-    // jQuery UI Autocomplete Initialization
-    $( function() {
-      var availableTags = [
-        "Chrome",
-        "Firefox",
-        "Safari",
-        "Edge"
-      ];
-      $( "#tags" ).autocomplete({
-        source: availableTags
+    <!-- Custom Dropdown Example -->
+    <h2>Custom Dropdown Example</h2>
+    <div class="dropdown-container">
+      <input type="text" class="dropdown-input" placeholder="Search..." />
+      <div class="dropdown-content">
+        <a href="google.com"><div>Chrome</div></a>
+        <a href="youtube.com"><div>Youtube</div></a>
+        <a href="instagram.com"><div>Instagram</div></a>
+        <a href="facebook.com"><div>Facebook</div></a>
+      </div>
+    </div>
+
+    <script>
+      // jQuery UI Autocomplete Initialization
+      $(function () {
+        var availableTags = ["Chrome", "Firefox", "Safari", "Edge"];
+        $("#tags").autocomplete({
+          source: availableTags,
+        });
       });
-    });
 
-    // Custom Dropdown Script
-    const dropdownInput = document.querySelector('.dropdown-input');
-    const dropdownContent = document.querySelector('.dropdown-content');
+      // Custom Dropdown Script
+      const dropdownInput = document.querySelector(".dropdown-input");
+      const dropdownContent = document.querySelector(".dropdown-content");
 
-    dropdownInput.addEventListener('input', () => {
-      dropdownContent.style.display = 'block';
-      const filter = dropdownInput.value.toLowerCase();
-      const options = dropdownContent.querySelectorAll('div');
+      dropdownInput.addEventListener("input", () => {
+        dropdownContent.style.display = "block";
+        const filter = dropdownInput.value.toLowerCase();
+        const options = dropdownContent.querySelectorAll("div");
 
-      options.forEach(option => {
-        const text = option.textContent.toLowerCase();
-        if (text.includes(filter)) {
-          option.style.display = '';
-        } else {
-          option.style.display = 'none';
-        }
+        options.forEach((option) => {
+          const text = option.textContent.toLowerCase();
+          if (text.includes(filter)) {
+            option.style.display = "";
+          } else {
+            option.style.display = "none";
+          }
+        });
       });
-    });
 
-    dropdownInput.addEventListener('blur', () => {
-      setTimeout(() => {
-        dropdownContent.style.display = 'none';
-      }, 100);
-    });
-
-    dropdownContent.querySelectorAll('div').forEach(option => {
-      option.addEventListener('click', () => {
-        dropdownInput.value = option.textContent;
-        dropdownContent.style.display = 'none';
+      dropdownInput.addEventListener("blur", () => {
+        setTimeout(() => {
+          dropdownContent.style.display = "none";
+        }, 100);
       });
-    });
-  </script>
 
-</body>
+      dropdownContent.querySelectorAll("div").forEach((option) => {
+        option.addEventListener("click", () => {
+          dropdownInput.value = option.textContent;
+          dropdownContent.style.display = "none";
+        });
+      });
+    </script>
+  </body>
 </html>
