@@ -1281,7 +1281,7 @@ footer img {
   }
   70%,
   80% {
-    width: calc(300px + 0.5px);
+    width: 280.5px;
   }
   100% {
     width: 0px;
