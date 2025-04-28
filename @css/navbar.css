@@ -1,0 +1,141 @@
+/* Navbar */
+nav {
+  background-color: #1d1b1b;
+  border: 1px solid #eaeaea;
+  /* backdrop-filter: blur(100px); */
+  display: flex;
+  align-items: stretch;
+  justify-content: center;
+  position: fixed;
+  top: 5;
+  left: 50%;
+  width: 95%;
+  height: 50px;
+  z-index: 100000;
+  border-radius: 10px;
+  transform: translateY(10px) translateX(-50%);
+}
+nav .conteiner {
+  height: 100%;
+  width: 90%;
+  margin: 0px auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+nav .conteiner .burger-logo {
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  width: 130px;
+}
+
+nav .conteiner .burger-logo .logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+nav .conteiner .logo img {
+  width: 50px;
+}
+nav .conteiner .logo p {
+  line-height: 13px;
+  font-weight: bold;
+  font-size: 16px;
+  color: rgb(255, 193, 77);
+}
+nav .conteiner .logo p::after {
+  content: "";
+  display: block;
+  width: 20px;
+  height: 3px;
+  background-color: #ec4d37;
+  transform: translateX(10px);
+}
+.link {
+  font-weight: bold;
+  display: flex;
+  justify-content: start;
+  flex-grow: 2;
+  gap: 20px;
+  width: 320px;
+  height: 100%;
+}
+.link li {
+  display: flex;
+  align-items: center;
+  text-align: left;
+  list-style: none;
+  position: relative;
+}
+.link li a {
+  text-decoration: none;
+  color: #eaeaea;
+  cursor: pointer;
+  transition: all 0.1s;
+}
+
+.link li a::after {
+  content: "";
+  display: block;
+  width: 0;
+  height: 2px;
+  margin: 0 auto;
+  background-color: rgb(255, 193, 77);
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  transition: all 0.1s;
+}
+
+.link li a:hover {
+  color: rgb(255, 193, 77);
+}
+.link a:hover:after {
+  width: 70%;
+}
+
+.link li ul.dropdown li {
+  display: block;
+  margin-bottom: 10px;
+  width: 200px;
+}
+
+.link li ul.dropdown {
+  padding: 20px 0;
+  text-align: left;
+  padding: 10px;
+  background-color: #1d1b1b;
+  /* backdrop-filter: blur(100px); */
+  position: absolute;
+  top: 50px;
+  z-index: 999;
+  display: none;
+  border: 1px solid #eaeaea;
+}
+
+.link li:hover ul.dropdown {
+  display: block;
+}
+
+.dr-1 {
+  width: calc(100% + 80px);
+}
+nav .daftar {
+  font-weight: bold;
+  color: white;
+  text-decoration: none;
+  display: inline-block;
+  background-color: salmon;
+  padding: 5px 10px;
+  border-radius: 10px;
+}
+
+.more-btn {
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  gap: 10px;
+  width: 130px;
+}

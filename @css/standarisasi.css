@@ -1,0 +1,39 @@
+/* ########___________________START STANDARISASI____________ */
+.standar-heading1 {
+  font-size: 50px;
+  text-align: center;
+  margin: 10px auto;
+  width: 480px;
+  display: block;
+  /* border: 1px solid white; */
+}
+
+.standar-heading1::after {
+  content: "";
+  display: block;
+  height: 5px;
+  width: 30px;
+  background-color: #ec4d37;
+  margin: 0 auto;
+}
+
+.standar-btn {
+  display: inline-block;
+  margin: 0 auto;
+  background-color: orange;
+  color: #1d1b1b;
+  padding: 5px 10px;
+  border-radius: 30px;
+  text-decoration: none;
+  font-weight: bold;
+  border: none;
+  border: 1px solid #1d1b1b;
+  transition: all 0.3s;
+}
+.standar-btn:hover {
+  background-color: transparent;
+  color: orange;
+  border: 1px solid orange;
+  box-sizing: border-box;
+}
+/* ########___________________END STANDARISASI____________ */

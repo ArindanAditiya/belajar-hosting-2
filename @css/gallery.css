@@ -1,0 +1,29 @@
+/* Gallery */
+.image {
+  width: 420px;
+}
+#gallery .row {
+  height: 250px;
+}
+.row h2 {
+  position: absolute;
+  left: 0px;
+  bottom: 0;
+  font-size: 30px;
+}
+.all-thumbnail {
+  transform: translateY(-410px) translateX(-215px);
+}
+.yt-1 i,
+.yt-2 i {
+  color: #ff0000;
+  font-size: 7em;
+}
+.yt-1 {
+  left: 30px;
+  top: 40px;
+}
+.yt-2 {
+  right: 30px;
+  top: 90px;
+}

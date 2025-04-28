@@ -1,0 +1,199 @@
+/* Mobile Device */
+@media (max-width: 640px) /*ukuran layar hp */ {
+  .standar-heading1 {
+    font-size: 40px;
+    width: 270px;
+    margin-bottom: 20px;
+  }
+  /* .menu-toggle {
+    display: flex;  
+  } */
+  nav {
+    overflow: hidden;
+    position: fixed;
+    transition: 0.5s;
+    height: 50px;
+    justify-content: center;
+  }
+  nav .conteiner {
+    justify-content: start;
+    width: 95%;
+    flex-direction: column;
+    /* transform: translateY(65px); */
+    position: absolute;
+    top: 15px;
+    height: 100%;
+    gap: 12px;
+  }
+  nav .conteiner .burger-logo {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+  }
+  .link {
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+    height: 70% !important;
+    /* display: none; */
+  }
+  .link li ul.dropdown {
+    top: 20px;
+  }
+  .more-btn {
+    margin-bottom: 30px;
+    height: 30px;
+  }
+  nav.nav-tinggi {
+    height: 300px;
+  }
+
+  /* SAMBUTAN */
+  .sambutan-img {
+    width: 580px;
+    position: relative;
+    height: 550px;
+    overflow-x: hidden;
+  }
+  .content p {
+    font-size: calc(20px - 4px);
+    font-weight: 500;
+  }
+  .content h1 {
+    font-size: calc(50px - 20px);
+  }
+  .jurusan {
+    gap: 0;
+    height: 70px;
+    bottom: -20px;
+  }
+  .jurusan-detil {
+    width: 70px;
+  }
+  .jurusan-detil .hiasan-circle {
+    width: 70px;
+    height: 70px;
+  }
+  .jurusan-detil img {
+    width: 50px;
+  }
+  .jurusan-detil h1 {
+    font-size: 2em;
+  }
+  .jurusan-detil h3 {
+    margin-top: 55px;
+    font-size: 1em;
+  }
+  .jurusan-detil p {
+    /* font-size: 12px; */
+    display: none;
+  }
+
+  /* Sambutan */
+  .name {
+    top: calc(90px + 250px);
+    right: calc(-50px + 150px);
+  }
+  .sosmed {
+    top: calc(119px + 270px);
+    right: calc(28px + 150px);
+  }
+  .sambutan-content h1 {
+    margin-top: 10px;
+    margin-bottom: 30px;
+    transform: scale(0.9) translateX(-7px);
+  }
+  .hiasan-content {
+    height: 7px;
+  }
+
+  /* profile */
+  #profile {
+    padding-top: 10px;
+  }
+  #profile .conteiner {
+    width: 80%;
+    /* border: 1px solid white; */
+  }
+  #profile .conteiner .col {
+    width: 100%;
+  }
+  .info {
+    width: 100%;
+  }
+  .about-content {
+    width: 100%;
+  }
+  .fasilitas-content {
+    height: 570px;
+  }
+  .about-content div {
+    width: 800px;
+    /* padding-left: 20px; */
+  }
+  .fasilitas-content {
+    margin-top: 40px;
+  }
+  .fasilitas-content div {
+    width: 300px;
+    padding-left: 10px;
+  }
+  .fasilitas-content h2 {
+    margin-bottom: 10px;
+  }
+  .map {
+    width: 90%;
+    margin-top: 25px;
+  }
+
+  /* Prodi */
+  .prodi-title {
+    margin-top: 20px;
+  }
+  .prodi-title img {
+    width: 50px;
+    margin-left: 20px;
+  }
+  .prodi-content p {
+    padding: 30px 0;
+    margin: 100px 0 0 0;
+    line-height: 25px;
+    width: 90%;
+  }
+  .prodi-img {
+    order: 2;
+    height: 60vh;
+  }
+  .prodi-content {
+    order: 1;
+  }
+
+  /* Footer */
+  footer {
+    padding-top: 30px;
+    padding-bottom: 30px;
+  }
+  footer h1 {
+    font-size: 30px;
+  }
+  footer .row {
+    gap: 10px;
+  }
+  footer .row.top {
+    padding-bottom: 10px;
+    gap: 20px;
+  }
+  footer .row.bottom {
+    margin-top: 20px;
+    gap: 15px;
+  }
+  .col.image {
+    width: 200px;
+  }
+
+  /* more */
+  .menu-toggle {
+    display: flex !important;
+  }
+}

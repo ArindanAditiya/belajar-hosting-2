@@ -144,7 +144,7 @@ function updateResults() {
 
       let newElement = originalElement.cloneNode(true);
       newElement.innerHTML = `${allData[i].result}`;
-      newElement.classList.remove("sembunyikanResult");
+      newElement.classList.remove("sembun58YyikanResult");
       newElement.classList.add("munculkanResult");
       newElement.onclick = () => {
         loadingPage.classList = "munculkan-loading";
@@ -169,7 +169,7 @@ menuToggle.addEventListener("click", function () {
   nav.classList.toggle("nav-tinggi");
 });
 
-// 6. MODE SWITCH DARK AND LIGHT
+// 6. MODE SWITCH DARK AND LIGHT2
 const modeToggle = document.querySelector(".mode-btn");
 const icon = document.querySelector(".icon");
 const components = document.querySelectorAll(".mode");

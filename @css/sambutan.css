@@ -1,0 +1,114 @@
+/* start sambutan */
+#sambutan {
+  width: 100%;
+  padding-top: 100px;
+  /* border: 1px solid white; */
+}
+#sambutan .conteiner {
+  /* width: 900px; */
+  display: block;
+  width: 90%;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  /* border: 1px solid white; */
+  overflow: hidden;
+}
+/* .sambutan-img,.sambutan-content{
+} */
+.sambutan-img {
+  width: 580px;
+  position: relative;
+  height: 550px;
+  overflow-x: hidden;
+}
+.sambutan-content {
+  width: 400px;
+}
+.sambutan-img .img {
+  height: 600px;
+  width: 600px;
+  background-position: center;
+  background-size: cover;
+  transform: rotate(45deg);
+  border-radius: 10px;
+  border: 10px solid orange;
+  position: absolute;
+  top: -200px;
+  left: -250px;
+  z-index: 20;
+  overflow: hidden;
+}
+.sambutan-img .img::before {
+  content: "";
+  position: absolute;
+  top: 30px;
+  right: 0;
+  bottom: 0;
+  left: 200px;
+  height: 600px;
+  width: 600px;
+  background: url("../img/kepsek.jpg") center/cover no-repeat;
+  transform: rotate(315deg); /* Merotasi latar belakang sebesar 45 derajat */
+  z-index: -11;
+}
+.name {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 40px;
+  padding: 0 10px;
+  background-color: orange;
+  color: #1d1b1b;
+  position: absolute;
+  top: 90px;
+  z-index: 21;
+  right: calc(-50px + 60px);
+  border-radius: 30px;
+}
+.sosmed {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  height: 40px;
+  padding: 0 10px;
+  background-color: orange;
+  color: #1d1b1b;
+  position: absolute;
+  top: 140px;
+  z-index: 21;
+  right: calc(28px + 60px);
+  border-radius: 30px;
+  /* border: 1px solid white; */
+}
+.sosmed a {
+  color: #1d1b1b;
+  display: block;
+  text-decoration: none;
+}
+/* .sambutan-content {
+  display: flex;
+  align-items: center;
+  justify-content: left;
+} */
+.sambutan-content h1 {
+  margin-top: 10px;
+  margin-bottom: 20px;
+  margin-left: 0px;
+  transform: scale(1.1);
+}
+
+.sambutan-content p {
+  line-height: 25px;
+}
+
+.hiasan-content {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  height: 10px;
+  width: 200px;
+  background-color: orange;
+}
+/* end sambutan */
