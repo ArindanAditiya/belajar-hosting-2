@@ -134,8 +134,13 @@ nav .daftar {
 
 .more-btn {
   display: flex;
-  justify-content: end;
+  justify-content: center;
   align-items: center;
   gap: 10px;
   width: 130px;
+}
+
+.grouping-btn {
+  display: flex;
+  gap: 10px;
 }

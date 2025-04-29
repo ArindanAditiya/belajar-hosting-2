@@ -812,6 +812,8 @@ footer img {
 .dark {
   color: #1d1b1b;
 }
+
+/* loader */
 .loader {
   width: fit-content;
   font-weight: bold;
