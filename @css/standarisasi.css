@@ -17,6 +17,11 @@
   margin: 0 auto;
 }
 
+.standar-paragraf {
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
 .standar-btn {
   display: inline-block;
   margin: 0 auto;

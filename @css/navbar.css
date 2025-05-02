@@ -10,7 +10,7 @@ nav {
   top: 5;
   left: 50%;
   width: 95%;
-  height: 50px;
+  height: 70px;
   z-index: 100000;
   border-radius: 10px;
   transform: translateY(10px) translateX(-50%);
